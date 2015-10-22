@@ -1,0 +1,19 @@
+//: Playground - noun: a place where people can play
+//: Gabriel Guevara Gutierrez
+import UIKit
+
+
+for numero in 1...100 {
+    if numero % 2 == 0 {
+        print ("El numero \(numero) #Par")
+    }
+    else if numero % 2 == 1 {
+        print ("El numero \(numero) #ImPar")
+    }
+    if numero % 5 == 0 {
+        print ("El numero \(numero) #Bingo!!!")
+    }
+    if numero >= 30 && numero <= 40 {
+        print ("El numero \(numero) #VivaSwfit!!!")
+    } 
+}
