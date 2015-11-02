@@ -1,0 +1,45 @@
+import UIKit
+
+enum Velocidades : Int {
+    case Apagado = 0, VelocidadBaja = 20, VelocidadMedia = 50, VelocidadAlta =  120
+    
+    init () {
+        self = .Apagado
+    }
+    
+    init( velocidadInicial : Velocidades ) {
+        self = velocidadInicial
+    }
+}
+
+class Auto {
+    var velocidad = Velocidades()
+    
+    init () {
+        velocidad = Velocidades(velocidadInicial: Velocidades.Apagado) //Apagado
+    }
+    
+    func  cambioDeVelocidad( ) -> ( actual : Int, velocidadEnCadena: String) {
+        switch velocidad {
+        case .Apagado :
+                velocidad = .VelocidadBaja
+        case .VelocidadBaja :
+                velocidad = .VelocidadMedia
+        case .VelocidadMedia :
+                velocidad = .VelocidadAlta
+        case .VelocidadAlta :
+                velocidad = .Apagado
+    
+        }
+        return (actual : velocidad.rawValue, velocidadEnCadena: String(velocidad))
+    }
+}
+
+var miAuto = Auto()
+for indice in 1...20 {
+    var vTupla = miAuto.cambioDeVelocidad()
+    print ("\(vTupla.actual), \(vTupla.velocidadEnCadena)");
+    // Al momento de llamar por primera vez la funcion se cambia la velocidad
+    // por lo que no se inicia en Apagado, a pesar de que se solicita de esa forma 
+    // en las instrucciones.
+}
